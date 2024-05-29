@@ -1,0 +1,153 @@
+Functions 
+=========
+-function is a block of code/statements designed to perform a particular task.
+-function is executed only when that gets invoked/called.
+-function is defined with the function keyword, followed by a name, followed by parentheses ().
+-The code to be executed(function body), by the function, is placed inside curly brackets: {}
+-Function parameters are listed inside the parentheses () in the function definition.
+-Function arguments are the values received by the function when it is invoked.
+-Inside the function, the arguments (the parameters) behave as local variables.
+
+1. pre-defined (alert(),prompt(),confirm(),max(),min(),sqrt(),cbrt())
+	already written, we are just using them
+2. user-defined
+	we have to write,and we will use them
+   
+   a. function declaration (named function)
+   b. function expression(anonymous)
+   c. self invoked ( IIFE- Immediately Invoked Function Expression)
+   d. arrow function (ES - 6)(2015)
+  
+
+Note:
+=====
+Parameter: is the variable in the function declaration. 
+		   It is part of the function signature when you create it.
+Argument: is the actual value of the variable being passed to the function when it is called.
+
+
+
+Function Declaration			Function Expression
+--------------------------------------------------------
+1. Named						1. Anonymous
+2. Hoisting - yes				2. Hoisting - No
+3. creation phase(parse)		3. execution phase (run)
+
+   
+-A Function Expression is created when the execution reaches it and is usable only from that moment.
+-A Function Declaration can be called before it is defined.
+-function declarations are parsed before their execution. 
+ function expressions are parsed only when the script engine encounters it during execution.
+
+
+Arrow Function
+--------------
+-'this' value inside a regular function is dynamic and depends on the context in which it is called.
+-'this' inside the arrow function is bound lexically and equals to 'this' where the function is declared.
+-lexical context means that arrow function uses 'this' from the code that contains the arrow function.
+-Regular function ( this = how the function is invoked/who invoked )
+-Arrow function( this = where the function is declared )
+
+
+Arrow Function Limitations
+--------------------------
+-Arrow functions don't have their own bindings to this, arguments or super cann't be used inside arrow function.
+-Arrow functions don't have access to the new,target keyword.
+-Arrow functions aren't suitable for call, apply and bind methods, which generally rely on establishing a scope.
+-Arrow functions cannot be used as constructors.
+-Arrow functions cannot use yield, within its body.
+
+
+
+
+IIFE
+====
+-used when we try to avoid polluting the global scope, 
+-The variables declared inside the IIFE are not visible outside its scope.
+-closure
+
+
+Function Curring
+================
+-Function Currying is a concept of breaking a function with many arguments into many functions with single argument in such a way, that the output is same. 
+-its a technique of simplifying a multi-valued argument function into single-valued argument multi-functions.
+-It helps to create a higher-order function. It is extremely helpful in event handling.
+
+	var add = function (a){
+                 return function(b){
+                       return function(c){
+                                 return a+b+c;
+                              }        
+                        }
+                  }
+	console.log(add(2)(3)(4)); //output 9
+
+
+
+Pure Function
+=============
+-Pure functions are functions that accept an input and returns a value without 
+ modifying any data outside its scope(Side Effects). 
+ 
+-A function is called pure if that follows the below 3 standards
+	1. Pure functions shouldn't update the data outside it's scope.
+	2. pure functions must return a value.
+	3. Its output or return value must depend on the input/arguments.
+
+
+
+
+Higher-order Function
+=====================
+-Higher-order function is a function that may receive a function as an argument and/or can even return a function. 
+-a function can be called as a Higher-order if that function has either of the below 2 abilities:
+	1. a function has ability to return another function.
+	2. a function has ability to take another function as argument.
+-Array filter(),map(),reduce(),sort() are some of the Higher-Order functions.
+
+
+
+function recursion
+==================
+-A recursive function is a function that calls itself until the program achieves the desired result.
+-A recursive function should have a condition that stops the function from calling itself.otherwise, 'RangeError: Maximum call stack size exceeded'  error will be thrown
+-A recursive function can be used instead of a loop where we don't know how many times the loop needs to be executed.
+
+ex: function countDown(fromNumber) {
+		console.log(fromNumber);
+		let nextNumber = fromNumber - 1;
+		if (nextNumber > 0) {
+			countDown(nextNumber);
+		}
+	}
+	countDown(5);
+
+
+
+Memoization
+===========
+-Memoization is a programming technique that attempts to increase a function’s performance by caching its previously computed results.
+-Memoization is an optimization technique used to speed up performance by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+-its a kind of caching the data.
+-used with recursion.
+
+
+
+function closure
+================
+-A closure is an inner function that has access to its outer function's variables even after the outer function's execution is Completed/Closed.
+-The inner function retains access to the outer function’s scope, because of a saved reference to the lexical environment it was initially defined in.
+-closures are mainly used for - encapsulation , iterators  
+-closure = function + lexical-scope
+
+
+
+
+
+Closure Disadvantages
+=====================
+-As long as the closure are active , the memory can't be garbage collected. 
+-If we are using closure in ten places then unless all the ten process complete 
+ it hold the memory which cause memory leak.
+
+
