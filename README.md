@@ -21,3 +21,8 @@ Variables
 
 N:p - All variables (var,let,const) are hoisted but only 'var' variables are usable/reachable before initialization.
 -let/const variables are not reachable/usable before initialization (Temporal Dead Zone)
+
+
+
+
+i integrated git with jenkins
