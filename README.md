@@ -27,4 +27,5 @@ N:p - All variables (var,let,const) are hoisted but only 'var' variables are usa
 
 i integrated git with jenkins
 
-now i automatic deploy to the jenkins and git after every commit
+now i automatic deploy to the jenkins and git
+after every commit in the github
